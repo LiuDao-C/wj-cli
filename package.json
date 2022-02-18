@@ -1,0 +1,21 @@
+{
+    "name": "liudao-cli",
+    "version": "1.0.0",
+    "description": "a cli tools",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "bin": "bin/index.js",
+    "files": [
+        "lib",
+        "types.d.ts"
+    ],
+    "keywords": [
+        "typescript",
+        "git",
+        "cli"
+    ],
+    "devDependencies": {
+        "cac": "^6.7.12",
+        "chalk": "^5.0.0"
+    }
+}
