@@ -2,20 +2,63 @@
     "name": "liudao-cli",
     "version": "1.0.0",
     "description": "a cli tools",
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
-    "bin": "bin/index.js",
-    "files": [
-        "lib",
-        "types.d.ts"
-    ],
+    "main": "index.js",
+    "bin": {
+        "ldc": "./bin/cli.js"
+    },
+    "files": [],
+    "scripts": {
+        "compile": "babel src -d dist",
+        "watch": "npm run compile -- --watch",
+        "test": "jest --coverage"
+    },
     "keywords": [
         "typescript",
         "git",
         "cli"
     ],
+    "dependencies": {
+        "adm-zip": "0.5.5",
+        "babel-env": "^2.4.1",
+        "cac": "^6.7.3",
+        "env-paths": "^2.2.1",
+        "fast-glob": "^3.2.7",
+        "fs-extra": "^10.0.1",
+        "ini": "^2.0.0",
+        "lodash": "^4.17.21",
+        "node-fetch": "^2.6.1",
+        "ora": "^5.4.1",
+        "prompts": "^2.4.1",
+        "semver": "^7.3.5",
+        "validate-npm-package-name": "^3.0.0"
+    },
     "devDependencies": {
-        "cac": "^6.7.12",
-        "chalk": "^5.0.0"
+        "@commitlint/cli": "16.1.0",
+        "@commitlint/config-conventional": "16.0.0",
+        "@types/adm-zip": "0.4.34",
+        "@types/ini": "1.3.31",
+        "@types/jest": "27.4.0",
+        "@types/lodash": "4.14.178",
+        "@types/node": "17.0.10",
+        "@types/node-fetch": "2.5.12",
+        "@types/prompts": "2.0.14",
+        "@types/semver": "7.3.9",
+        "@types/validate-npm-package-name": "3.0.3",
+        "babel-cli": "^6.26.0",
+        "babel-plugin-transform-async-to-generator": "^6.24.1",
+        "babel-plugin-transform-es2015-classes": "^6.24.1",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "chalk": "^5.0.0",
+        "commander": "^9.0.0",
+        "ejs": "^3.1.6",
+        "husky": "7.0.4",
+        "inquirer": "^8.2.0",
+        "jest": "27.4.7",
+        "lint-staged": "12.2.2",
+        "rimraf": "3.0.2",
+        "ts-jest": "27.1.3",
+        "ts-standard": "11.0.0",
+        "typescript": "4.3.5"
     }
 }
