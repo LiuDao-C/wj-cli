@@ -1,8 +1,5 @@
-const inquirer = require('inquirer');
-const path = require('path');
-const fs = require('fs');
-const ejs = require('ejs');
-const program = require('commander');
+import chalk from 'chalk';
+import program from 'commander';
 import { createExecutor } from './createExecutor.js';
 
 
@@ -20,6 +17,13 @@ program
     // 配置版本号信息
     .version(`v${require('../package.json').version}`)
     .usage('<command> [option]')
+
+program
+    // 监听 --help 执行
+    .on('--help', () => {
+        // 新增说明信息
+        console.log(`\r\nRun ${chalk.cyan(`zr <command> --help`)} for detailed usage of given command\r\n`)
+    })
 
 // 解析用户执行命令传入参数    
 program.parse(process.argv);

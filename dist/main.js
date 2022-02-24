@@ -1,31 +1,31 @@
-'use strict';
+"use strict";
 
-var _createExecutor = require('./createExecutor.js');
+var _chalk = _interopRequireDefault(require("chalk"));
 
-const inquirer = require('inquirer');
-const path = require('path');
-const fs = require('fs');
-const ejs = require('ejs');
-const program = require('commander');
+var _commander = _interopRequireDefault(require("commander"));
 
+var _createExecutor = require("./createExecutor.js");
 
-require('babel-core/register');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-program.command('create <path>').description('创建项目').option('-f, --force', '如果目录已存在，会覆盖该目录').action((path, cmd) => {
-    let data = {};
-    console.log('path: ', path);
-    new _createExecutor.createExecutor(Object.assign(data, { 'path': path }, cmd));
+_commander["default"].command('create <name>').description('创建项目').option('-f, --force', '如果目录已存在，会覆盖该目录').action(function (name, cmd) {
+  var data = {};
+  new _createExecutor.createExecutor(Object.assign(data, {
+    'name': name
+  }, cmd));
 });
 
-program
-// 配置版本号信息
-.version(`v${require('../package.json').version}`).usage('<command> [option]');
+_commander["default"] // 配置版本号信息
+.version("v".concat(require('../package.json').version)).usage('<command> [option]');
 
-// 解析用户执行命令传入参数    
-program.parse(process.argv);
+_commander["default"] // 监听 --help 执行
+.on('--help', function () {
+  // 新增说明信息
+  console.log("\r\nRun ".concat(_chalk["default"].cyan("zr <command> --help"), " for detailed usage of given command\r\n"));
+}); // 解析用户执行命令传入参数    
 
-// var data = {};
 
+_commander["default"].parse(process.argv); // var data = {};
 // function collectUserInput(data = {}) {
 //     return new Promise((resolve, reject) => {
 //         inquirer.prompt([
@@ -41,14 +41,11 @@ program.parse(process.argv);
 //         })
 //     })
 // }
-
 // function copyTemplate2Dir(data) {
 //     // 模板文件目录
 //     const destUrl = path.join(__dirname, '../templates/vue/src/views/index');
-
 //     // 生成文件目录
 //     const cwdUrl = process.cwd();
-
 //     // 从模板目录中读取文件
 //     fs.readdir(destUrl, (err, files) => {
 //         if(err) throw err;
@@ -61,6 +58,5 @@ program.parse(process.argv);
 //         })
 //     })
 // }
-
 // console.log('脚手架开始工作啦')
 // collectUserInput(data);
